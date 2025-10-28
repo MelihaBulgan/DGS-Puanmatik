@@ -1,0 +1,110 @@
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<form action="" method="post">
+<body>
+<table border="1">
+<tr>
+<td colspan="3">
+<font color="black"><center>DGS Puanmatik</center></font>
+</td>
+</tr>
+
+<tr>
+<td></td>
+<td>Doğru</td>
+<td>Yanlış</td>
+</tr>
+
+<tr>
+<td>Sayısal Testi</td>
+<td><input type="text" name="sayd"></td>
+<td><input type="text" name="sayy"></td>
+</tr>
+
+<tr>
+<td>Sözel Testi</td>
+<td><input type="text" name="sözd"></td>
+<td><input type="text" name="sözy"></td>
+</tr>
+
+<tr>
+<td>Önlisans Başarı Puanı</td>
+<td><input type="text" name="öbp" "required"></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Alanınız</td>
+<td colspan="2">
+<input type="radio" name="alan" value="say">Sayısal
+<input type="radio" name="alan" value="söz">Sözel
+<input type="radio" name="alan" value="ea">Eşit Ağırlık
+</td>
+</tr>
+
+<tr>
+<td>2019 öncesinde DGS ile bir programa yerleştirildiniz mi?</td>
+<td><input type="radio" name="yer" value="1">Evet</td>
+<td><input type="radio" name="yer" value="2">Hayır</td>
+</tr>
+
+<tr>
+<td colspan="3">
+<center>
+<input type="submit" name="hesapla" value="Hesapla">
+<input type="reset" name="temizle" value="Temizle"></center>
+</td>
+</tr>
+</table>
+
+
+</body>
+</form>
+</html>
+
+<?php
+if(isset($_POST["hesapla"]))
+{
+  $sayd=$_POST["sayd"];
+  $sayy=$_POST["sayy"];
+  $sözd=$_POST["sözd"];
+  $sözy=$_POST["sözy"];
+  
+  $öbp=$_POST["öbp"];
+  
+  $yer=$_POST["yer"];
+  if($yer=="1")
+  {
+    $katsayı=0.30;
+  }
+  else if($yer=="2")
+  {
+    $katsayı=0.6;
+  }
+  
+  $alan=$_POST["alan"];
+  switch($alan)
+  {
+  case "say";
+    $ekpuan=250
+  break;
+  case "söz";
+    $ekpuan=120
+  break;
+  case "ea";
+    $ekpuan=222
+  break;
+  default;
+  echo" Alanınızı doldurmadınız. Lütfen alanı doldurup tekrar deneyiniz."
+  }
+  
+  
+}
+
+
+
+
+?>
+
